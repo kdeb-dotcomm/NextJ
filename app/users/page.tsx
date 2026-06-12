@@ -1,31 +1,41 @@
-import React from 'react'
+import React from "react";
 
-interface User{
-    id: number,
-    name: string,
-    email: string,
+interface User {
+  id: number;
+  name: string;
+  email: string;
 }
 
 const UsersPage = async () => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/users',
-        { cache : 'no-store'}
-    );
-    const users: User[] = await res.json()
+  const res = await fetch("https://jsonplaceholder.typicode.com/users", {
+    cache: "no-store",
+  });
+  const users: User[] = await res.json();
 
   return (
     <>
-    <h1>Users</h1>
-    <p>{ new Date().toLocaleTimeString()}</p>
-    {users.map(user => 
-        <li key={user.id}>{user.name}</li>
-        
-    )}
-    {users.map(user =>
-        <li key={user.id}>{user.email}</li>
-    )}
-    
-    </> 
-  )
-}
+      <h1>Users</h1>
+      
+      <table className="table table-bordere">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
-export default UsersPage
+      
+    </>
+  );
+};
+
+export default UsersPage;

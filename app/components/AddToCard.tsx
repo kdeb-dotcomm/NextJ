@@ -3,7 +3,7 @@
 const AddToCard = () => {
   return (
     <div>
-        <button className="cursor-pointer" onClick={()=>(console.log('Testing'))}>AddToCard</button>
+        <button className="cursor-pointer btn btn-primary" onClick={()=>(console.log('Testing'))}>AddToCard</button>
       
     </div>
   )
